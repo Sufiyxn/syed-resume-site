@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Sufiyan - Resume</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    
+    <button id="themeToggle">
+        <img id="themeIcon" src="https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png" alt="Theme Icon">
+        Switch Theme
+    </button>
+    
+    <div class="container">
+    
+        <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
+        <h1>Syed Sufiyan</h1>
+        <p class="title">Customer Service Associate</div>
+        <div class="contact-icons">Hyderabad, India</p>
+        <div class="contact-icons">Email: <a href="mailto:sufiyxnn@gmail.com">sufiyxnn@gmail.com</a></p>
+        <div class="contact-icons">Phone: +91 6304765930</p>
+        
+<div class="contact-icons">
+    <a href="https://in.linkedin.com/in/syed-sufiyan-44745a2a0" target="_blank" style="margin-right: 10px;">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width:30px; height:30px;">
+    </a>
+    <a href="mailto:sufiyxnn@gmail.com" style="margin-right: 10px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email" style="width:30px; height:30px;">
+    </a>
+    <a href="tel:+916304765930">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Phone_font_awesome.svg/1024px-Phone_font_awesome.svg.png" alt="Phone" style="width:30px; height:30px;">
+    </a>
+</p>
+<a class="btn" href="Syed_Sufiyan_Resume.pdf" download>Download Resume</a>
+
+        <hr>
+        <section class="scroll-reveal">
+            <h2>Professional Summary</h2>
+            <div class="contact-icons">Customer Service Associate with 2.5 years of experience at Amazon, delivering efficient, empathetic, and timely support across email, chat, and voice. Proven record in resolving issues, meeting performance targets, and maintaining high customer satisfaction in fast-paced environments.</p>
+        </section>
+        <section class="scroll-reveal">
+            <h2>Skills</h2>
+            <ul>
+                <li>Customer Support (Email, Chat, Voice)</li>
+                <li>CRM & Ticketing Tools</li>
+                <li>Time Management & Multitasking</li>
+                <li>Conflict Resolution</li>
+                <li>Escalation Handling</li>
+                <li>Verbal and Written Communication</li>
+                <li>Team Collaboration</li>
+            </ul>
+        </section>
+        <section class="scroll-reveal">
+            <h2>Experience</h2>
+            <h3>Amazon - Customer Service Associate</h3>
+            <div class="contact-icons"><strong>Sep 2022 - Apr 2025 | Hyderabad</strong></p>
+            <ul>
+                <li>Resolved customer issues related to orders, returns, and accounts through chat, email, and voice.</li>
+                <li>Maintained KPIs including AHT, CSAT, QA, and adherence consistently.</li>
+                <li>Escalated complex issues while ensuring customer satisfaction and process compliance.</li>
+                <li>Collaborated with team members to identify process improvements and shared best practices.</li>
+            </ul>
+        </section>
+        <section class="scroll-reveal">
+            <h2>Education</h2>
+            <div class="contact-icons"><strong>Noesis Junior College, Hyderabad</strong><br>Intermediate - MPC, Graduated: 2021</p>
+        </section>
+        <section class="scroll-reveal">
+            <h2>Languages</h2>
+            <ul>
+                <li>English (Fluent)</li>
+                <li>Hindi (Fluent)</li>
+                <li>Urdu (Fluent)</li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        toggleBtn.onclick = () => {
+            document.body.classList.toggle('light-theme');
+        };
+    
+        // Typing effect for the title
+        const titles = ["Customer Service Associate", "Support Specialist", "Problem Solver"];
+        let i = 0, j = 0, current = "", isDeleting = false;
+        const typeTarget = document.getElementById("typed-title");
+
+        function typeEffect() {
+            if (i < titles.length) {
+                let fullText = titles[i];
+                if (isDeleting) {
+                    current = fullText.substring(0, j--);
+                } else {
+                    current = fullText.substring(0, j++);
+                }
+                typeTarget.textContent = current;
+
+                if (!isDeleting && j === fullText.length + 1) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1000);
+                } else if (isDeleting && j === 0) {
+                    isDeleting = false;
+                    i = (i + 1) % titles.length;
+                    setTimeout(typeEffect, 500);
+                } else {
+                    setTimeout(typeEffect, isDeleting ? 50 : 100);
+                }
+            }
+        }
+
+        typeEffect();
+    
+        // Scroll reveal effect
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            for (let el of reveals) {
+                const top = el.getBoundingClientRect().top;
+                if (top < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            }
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    
+        // Back to Top button
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+        backToTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    </script>
+    
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+
+        toggleBtn.onclick = () => {
+            document.body.classList.toggle('light-theme');
+            const isLight = document.body.classList.contains('light-theme');
+            themeIcon.src = isLight
+                ? 'https://img.icons8.com/ios-filled/50/000000/sun--v1.png'
+                : 'https://img.icons8.com/ios-filled/50/ffffff/moon-symbol.png';
+        };
+    
+        // Typing effect for the title
+        const titles = ["Customer Service Associate", "Support Specialist", "Problem Solver"];
+        let i = 0, j = 0, current = "", isDeleting = false;
+        const typeTarget = document.getElementById("typed-title");
+
+        function typeEffect() {
+            if (i < titles.length) {
+                let fullText = titles[i];
+                if (isDeleting) {
+                    current = fullText.substring(0, j--);
+                } else {
+                    current = fullText.substring(0, j++);
+                }
+                typeTarget.textContent = current;
+
+                if (!isDeleting && j === fullText.length + 1) {
+                    isDeleting = true;
+                    setTimeout(typeEffect, 1000);
+                } else if (isDeleting && j === 0) {
+                    isDeleting = false;
+                    i = (i + 1) % titles.length;
+                    setTimeout(typeEffect, 500);
+                } else {
+                    setTimeout(typeEffect, isDeleting ? 50 : 100);
+                }
+            }
+        }
+
+        typeEffect();
+    
+        // Scroll reveal effect
+        const reveals = document.querySelectorAll('.scroll-reveal');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            for (let el of reveals) {
+                const top = el.getBoundingClientRect().top;
+                if (top < windowHeight - 100) {
+                    el.classList.add('visible');
+                }
+            }
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+    
+        // Back to Top button
+        const backToTopBtn = document.getElementById("backToTop");
+        window.addEventListener("scroll", () => {
+            backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+        });
+        backToTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    </script>
+    
+    <button id="backToTop" title="Back to Top">↑</button>
+</body>
+
+    
+    
+</html>
